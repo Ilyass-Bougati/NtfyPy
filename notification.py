@@ -1,4 +1,4 @@
-from ntpy.Notification import *
+from NtfyPy.Notification import *
 
 # Before using this application the Ntfy server should
 # be already running and everything is setup in the phone 

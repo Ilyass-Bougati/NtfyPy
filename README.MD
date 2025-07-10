@@ -12,7 +12,7 @@ Keep in mind this won't work for iphone devices.
 # Using the package
 This is the example code provided in the `notification.py` script
 ```py
-from ntpy.Notification import *
+from NtfyPy.Notification import *
 
 # Before using this application the Ntfy server should
 # be already running and everything is setup in the phone 
