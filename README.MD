@@ -59,3 +59,52 @@ To change the default `host` and `port` you can modify the `.env` file following
 NTFY_HOST=localhost
 NTFY_PORT=333
 ```
+
+
+## Use Case: Notify When Build or Deployment Finishes
+
+You can integrate NtfyPy into your deployment script to get a phone notification when the process completes. Note here that the `notify.py` and `error.py` are the ones using the `NtfyPy` package
+
+Example Bash snippet:
+```bash
+# Run your deployment process
+your_deploy_command
+DEPLOY_STATUS=$?
+
+# Notify via ntfy
+if [[ "$*" == *"--ntfy"* ]]; then
+    if [[ "$DEPLOY_STATUS" == "0" ]]; then
+        ./utils/notify.py my_topic
+    else
+        ./utils/error.py my_topic
+    fi
+fi
+```
+
+The `error.py` file
+```py
+#!/usr/bin/python3
+
+from NtfyPy.Notification import Notification, Ntfy
+from sys import argv
+
+# Checking if a topic was provided
+if len(argv) != 2:
+    print("Wrong usage of the script")
+    print("usage : ")
+    print("     ./notify.py [topic]")
+    exit(1)
+
+
+TOPIC = argv[1]
+ntfy = Ntfy(TOPIC)
+
+# Sending the notification
+notification = Notification(
+    message = "Error building the images",
+    priority = "high",
+    tags = "rotating_light",
+    title = "Alexandre"
+)
+ntfy.send(notification)
+```
