@@ -1,0 +1,48 @@
+from NtfyPy.Notification import Notification, Ntfy
+
+def Notify(topic: str, title: str, message: str, priority = "default", tags = "", host = "localhost", port = "80"):
+    """
+    This decorator will send a custom notification when the function finishes execution
+    """
+    
+    # Creating a client object
+    ntfy = Ntfy(topic, host, port)
+    
+    # Creating the notification object
+    notification = Notification(message, title, priority, tags)
+    
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            # Executing the function
+            res = func(*args, **kwargs)
+
+            # Sending the notification
+            ntfy.send(notification)
+            return res
+        return wrapper
+    return decorator
+
+
+def NotifyRes(topic: str, priority = "default", tags = "", host = "localhost", port = "80"):
+    """
+    This decorator will send the result of running a function as a notification when it finishes execution
+    """
+
+    # Creating a client object
+    ntfy = Ntfy(topic, host, port)
+    
+    # Creating the notification object
+    notification = Notification("", "", priority, tags)
+    
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            # Executing the function
+            res = func(*args, **kwargs)
+
+            # Sending the notification
+            notification.title = f"Finished running {func.__name__}"
+            notification.message = str(res)
+            ntfy.send(notification)
+            return res
+        return wrapper
+    return decorator
