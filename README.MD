@@ -36,7 +36,19 @@ notification = Notification(
 # And with this one line we send a notification to the user
 ntfy.send(notification)
 
-# For 
-```
+# For convenience you can you the @Notify decorator to skip the 
+# initilization of the objects
+@Notify("test", "The the training is done", "Your AI model has finished training", "high")
+def train():
+    pass
 
-This code sends a simple notificaiton to your mobile device
+train()
+
+# And for even more convenience you can use @NotifyRes which
+# Which notifies you about the result of running your function
+@NotifyRes("test", "high")
+def sum(a: int, b: int):
+    return a + b
+
+sum(5, 3)
+```
