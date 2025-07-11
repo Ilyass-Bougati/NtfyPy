@@ -52,3 +52,9 @@ def sum(a: int, b: int):
 
 sum(5, 3)
 ```
+
+To change the default `host` and `port` you can modify the `.env` file following the example provided
+```env
+NTFY_HOST=localhost
+NTFY_PORT=333
+```
