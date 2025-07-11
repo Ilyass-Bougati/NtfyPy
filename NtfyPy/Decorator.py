@@ -40,7 +40,7 @@ def NotifyRes(topic: str, priority = "default", tags = "", host = "localhost", p
             res = func(*args, **kwargs)
 
             # Sending the notification
-            notification.title = f"Finished running {func.__name__}"
+            notification.title = f"Finished running the function {func.__name__}"
             notification.message = str(res)
             ntfy.send(notification)
             return res

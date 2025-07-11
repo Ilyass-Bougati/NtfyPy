@@ -12,7 +12,8 @@ Keep in mind this won't work for iphone devices.
 # Using the package
 This is the example code provided in the `notification.py` script
 ```py
-from NtfyPy.Notification import *
+from NtfyPy.Notification import Ntfy, Notification
+from NtfyPy.Decorator import NotifyRes, Notify
 
 # Before using this application the Ntfy server should
 # be already running and everything is setup in the phone 
@@ -34,6 +35,8 @@ notification = Notification(
 
 # And with this one line we send a notification to the user
 ntfy.send(notification)
+
+# For 
 ```
 
 This code sends a simple notificaiton to your mobile device
