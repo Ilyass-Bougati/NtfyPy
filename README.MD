@@ -1,4 +1,5 @@
-# Mobiles notification
+# NtfyPy ![python version](https://img.shields.io/badge/python-3-blue) ![pydantic version](https://img.shields.io/badge/pydantic_settings-2.10.1-blue) ![requests version](https://img.shields.io/badge/requests-2.25.1-blue)
+
 Following the [Ntfy documentations](https://docs.ntfy.sh/) we can create a docker container which will take care of all the underlying API for us. We simply run
 ```
 sudo docker run -p 80:80 -itd binwiederhier/ntfy serve
