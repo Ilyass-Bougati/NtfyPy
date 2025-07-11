@@ -1,4 +1,6 @@
 import requests
+from NtfyPy.Settings import NtfyConfig
+
 
 class Notification:
     def __init__(self, message: str, title: str, priority="default", tags="") -> None:
@@ -16,8 +18,9 @@ class Notification:
         self.message = message
         self.title = title
 
+
 class Ntfy:
-    def __init__(self, topic: str, host="localhost", port="80") -> None:
+    def __init__(self, topic: str, host=NtfyConfig.host, port=NtfyConfig.port) -> None:
         """
         Initializes a Ntfy object
 

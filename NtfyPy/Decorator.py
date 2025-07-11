@@ -1,6 +1,8 @@
 from NtfyPy.Notification import Notification, Ntfy
+from NtfyPy.Settings import NtfyConfig
 
-def Notify(topic: str, title: str, message: str, priority = "default", tags = "", host = "localhost", port = "80"):
+
+def Notify(topic: str, title: str, message: str, priority = "default", tags = "", host = NtfyConfig.host, port = NtfyConfig.port):
     """
     This decorator will send a custom notification when the function finishes execution
     """
@@ -23,7 +25,7 @@ def Notify(topic: str, title: str, message: str, priority = "default", tags = ""
     return decorator
 
 
-def NotifyRes(topic: str, priority = "default", tags = "", host = "localhost", port = "80"):
+def NotifyRes(topic: str, priority = "default", tags = "", host = NtfyConfig.host, port = NtfyConfig.port):
     """
     This decorator will send the result of running a function as a notification when it finishes execution
     """
