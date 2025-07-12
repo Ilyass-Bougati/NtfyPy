@@ -1,5 +1,4 @@
 from pydantic_settings import BaseSettings
-from pydantic import Extra
 
 class Settings(BaseSettings):
     host: str = "localhost"
