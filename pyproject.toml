@@ -22,5 +22,8 @@ classifiers = [
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
 
+[project.scripts]
+ntfypy = "NtfyPy.__main__:main"
+
 [project.urls]
 Homepage = "https://github.com/Ilyass-Bougati/ntpy"
