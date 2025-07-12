@@ -1,13 +1,15 @@
-from pydantic_settings import BaseSettings, ConfigDict
+from pydantic_settings import BaseSettings
+from pydantic import Extra
 
 class Settings(BaseSettings):
     host: str = "localhost"
     port: int = 80
-    model_config = ConfigDict(extra='ignore')
 
-    class Config:
-        env_prefix = "NTFY_"
-        env_file = ".env"
+    model_config = {
+        "env_prefix": "NTFY_",
+        "env_file": ".env",
+        "extra": "allow"
+    }
 
 class NtfyConfig:
     port = Settings().port
