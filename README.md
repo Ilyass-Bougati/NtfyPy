@@ -109,7 +109,8 @@ notification = Notification(
 ntfy.send(notification)
 ```
 
-You can also use the cli tool
+## The CLI tool
+The `ntfypy` CLI tool is made to notify you when executing a command is done, you provide it withe a topic and a command it executes the command, and when it's donoe it broadcasts a notification to the topic provided.
 ```bash
 ntfypy [topic] [command]
 ```
