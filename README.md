@@ -108,3 +108,8 @@ notification = Notification(
 )
 ntfy.send(notification)
 ```
+
+You can also use the cli tool
+```bash
+ntfypy [topic] [command]
+```
