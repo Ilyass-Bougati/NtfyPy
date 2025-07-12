@@ -14,7 +14,7 @@ def run_command():
     notification = Notification(
         title = "Command finished running",
         message=f"Finished running:\n{cmd}",
-        priority="default",
+        priority="high",
         tags="rotating_light"
     )
 
